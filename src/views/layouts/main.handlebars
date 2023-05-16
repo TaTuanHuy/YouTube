@@ -10,12 +10,29 @@
 
     <title>Youtube</title>
   </head>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    .cover{
+      max-width: 1800px;
+      margin-top: 30px;
+    }
+  </style>
   <body>
     <header>
         {{> header}}
     </header>
-        <div class = "container">
-            {{{body}}}
+        <div class="cover">
+          <div class="row">
+            <div class="col-2">
+              {{> sidebar}}
+            </div>
+            <div class = "container col-10">
+              {{{body}}}
+            </div>
+
+          </div>
         </div>
 
     <footer>

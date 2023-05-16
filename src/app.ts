@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "../src/views"));
+app.use(express.static('../src/public'))
 
 router(app);
 

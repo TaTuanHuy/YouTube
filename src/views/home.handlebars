@@ -1,16 +1,33 @@
-
- <div class="row">
+<style>
+    .card{
+        margin: 0;
+        height:100%;
+        width: 100% !important;;
+    }
+    .card-name{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp: 2;
+    }
+    .card-description{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp: 3;
+    }
+</style>
+ <div class="row mt-4">
 {{#each rows}}
         <div class="col-3 mt-4">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="https://i.ytimg.com/vi/{{this.video_id}}/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCKppUbDXKiAEJ6HVDT1SZfXZyNuA" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{this.video_name}}</h5>
-                    <p class="card-text">{{this.video_description}}</p>
+                    <h5 class="card-title card-name">{{this.video_name}}</h5>
+                    <p class="card-text card-description">{{this.video_description}}</p>
                     <a href="http://localhost:3000/{{this.video_id}}" class="btn btn-primary">Xem video</a>
                 </div>
             </div>
         </div>
-
  {{/each}}
  </div>

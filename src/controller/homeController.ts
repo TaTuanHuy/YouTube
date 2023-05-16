@@ -5,18 +5,19 @@ import dotenv from "dotenv";
 dotenv.config();
 
 async function getListVideo(req: Request, res: Response, next: NextFunction) {
-  const conn = await db;
-  const query = `SELECT * FROM ${process.env.VIDEOTABLE}`;
-  const [rows, fields] = await conn.query(query);
-  res.render("home", { rows });
+    const conn = await db;
+    const query = `SELECT * FROM ${process.env.VIDEO_TABLE}`;
+    const [rows, fields] = await conn.query(query);
+    res.render("home", { rows });
 }
 
 async function profileVideo(req: Request, res: Response, next: NextFunction) {
   const id = req.params.id;
   const conn = await db;
-  const query = `SELECT * FROM ${process.env.VIDEOTABLE} WHERE video_id = '${id}'`;
+  const query = `SELECT * FROM ${process.env.VIDEO_TABLE} WHERE video_id = '${id}'`;
   const [rows, fields] = await conn.query(query);
-  res.render("profileVideo", { rows });
+  let result = Object.values(JSON.parse(JSON.stringify(rows)));
+  res.render("profileVideo", { rows : result[0] });
 }
 
 export default {
