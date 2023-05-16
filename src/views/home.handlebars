@@ -1,0 +1,16 @@
+
+ <div class="row">
+{{#each rows}}
+        <div class="col-3 mt-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://i.ytimg.com/vi/{{this.video_id}}/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLCKppUbDXKiAEJ6HVDT1SZfXZyNuA" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.video_name}}</h5>
+                    <p class="card-text">{{this.video_description}}</p>
+                    <a href="http://localhost:3000/{{this.video_id}}" class="btn btn-primary">Xem video</a>
+                </div>
+            </div>
+        </div>
+
+ {{/each}}
+ </div>
