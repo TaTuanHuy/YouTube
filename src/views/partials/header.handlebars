@@ -1,12 +1,14 @@
 <style>
   .drop-container{
-    left: -140px;
+    left: -260%;
 
   }
   .img-profile-user{
     width: 30px;
     height: 30px;
-    border
+  }
+  .close{
+    display: none;
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,8 +42,9 @@
         <div class="dropdown-menu drop-container" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="http://localhost:3000/login">Đăng nhập</a>
           <a class="dropdown-item" href="http://localhost:3000/register">Đăng kí</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider close menu-profile"></div>
+          <a class="dropdown-item close menu-profile" href="#">Video của tôi</a>
+          <a class="dropdown-item close menu-profile" href="#">Thông tin cá nhân của tôi</a>
         </div>
       </li>
     </ul>

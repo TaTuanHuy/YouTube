@@ -1,8 +1,10 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
 import loginController from "../controller/loginController";
+import middleWareSignIn from "../middleware/middlewareSignIn";
 
-router.get('/', loginController.getFormSignIn)
+router.post("/", middleWareSignIn.checkSignIn, loginController.signIn);
 
+router.get("/", loginController.getFormSignIn);
 
 export default router;
