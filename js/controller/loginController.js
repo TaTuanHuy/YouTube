@@ -14,7 +14,6 @@ async function signIn(req, res, next) {
     // const conn = await db;
     // const userTable = process.env.USER_TABLE;
     // const videoTable = process.env.VIDEO_TABLE;
-    console.log(req.body);
     const token = createToken_1.default.createToken(req.body);
     res.json(token);
 }

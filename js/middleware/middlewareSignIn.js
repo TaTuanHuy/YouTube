@@ -9,15 +9,20 @@ dotenv_1.default.config();
 async function checkSignIn(req, res, next) {
     const conn = await db_1.default;
     const { user_name, pass_word } = req.body;
-    console.log(req.body);
-    const userTable = process.env.USER_TABLE;
-    const query = `SELECT * FROM ${userTable} WHERE user_name = '${user_name}' AND pass_word = '${pass_word}'`;
-    const [rows, fields] = (await conn.execute(query));
-    if (rows.length > 0) {
-        next();
+    if (user_name == undefined || pass_word == undefined) {
+        console.log("Bạn đã nhập sai tài khoản hoặc mật khẩu vui lòng thử lại!");
     }
     else {
-        res.send("Bạn đã nhập sai tài khoản hoặc mật khẩu vui lòng thử lại!");
+        const userTable = process.env.USER_TABLE;
+        const query = `SELECT * FROM ${userTable} WHERE user_name = '${user_name}' AND pass_word = '${pass_word}'`;
+        const [rows, fields] = (await conn.execute(query));
+        if (rows.length > 0) {
+            next();
+        }
+        else {
+            console.log(req.body);
+            console.log("Bạn đã đăng nhập sai");
+        }
     }
 }
 exports.default = {

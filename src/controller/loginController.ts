@@ -14,7 +14,6 @@ async function signIn(req: Request, res: Response, next: NextFunction) {
   // const conn = await db;
   // const userTable = process.env.USER_TABLE;
   // const videoTable = process.env.VIDEO_TABLE;
-  console.log(req.body);
   const token = jwt.createToken(req.body);
   res.json(token);
 }
