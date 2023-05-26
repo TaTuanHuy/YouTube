@@ -13,7 +13,6 @@ async function createUser(req: Request, res: Response, next: NextFunction) {
   const query = `INSERT INTO ${table} (user_name, pass_word, full_name, user_id)
                                    VALUES ('${user_name}', '${pass_word}', '${full_name}', '${user_id}');`;
   await conn.execute(query);
-  res.redirect("http://localhost:3000");
 }
 
 export default {

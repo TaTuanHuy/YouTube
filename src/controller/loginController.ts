@@ -10,10 +10,6 @@ function getFormSignIn(req: Request, res: Response, next: NextFunction) {
 }
 
 async function signIn(req: Request, res: Response, next: NextFunction) {
-  // const { user_name, password } = req.body;
-  // const conn = await db;
-  // const userTable = process.env.USER_TABLE;
-  // const videoTable = process.env.VIDEO_TABLE;
   const token = jwt.createToken(req.body);
   res.json(token);
 }

@@ -31,7 +31,7 @@ const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 function createToken(data) {
     const token = jsonwebtoken_1.default.sign(data, "HS256", {
-        expiresIn: 60 * 60,
+        expiresIn: 60 * 60 * 24,
         algorithm: "HS512",
     });
     const refressToken = jsonwebtoken_1.default.sign(data, "HS256", {
@@ -41,14 +41,14 @@ function createToken(data) {
     return token;
 }
 function verify(token) {
-    let data = null;
-    jsonwebtoken_1.default.verify(token, "HS256", (err, decoded) => {
+    const data = undefined;
+    const result = jsonwebtoken_1.default.verify(token, "HS256", (err, decoded) => {
         if (err) {
-            console.log("chuỗi token của bạn đã sai");
             return data;
         }
         return decoded;
     });
+    return result;
 }
 exports.default = {
     createToken,

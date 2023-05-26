@@ -4,7 +4,7 @@ dotenv.config();
 
 function createToken(data: {}) {
   const token = jwt.sign(data, "HS256", {
-    expiresIn: 60 * 60,
+    expiresIn: 60 * 60 * 24,
     algorithm: "HS512",
   });
 
@@ -15,14 +15,14 @@ function createToken(data: {}) {
   return token;
 }
 function verify(token: string) {
-  let data: any = null;
-  jwt.verify(token, "HS256", (err: any, decoded: any) => {
+  const data = undefined;
+  const result = jwt.verify(token, "HS256", (err: any, decoded: any) => {
     if (err) {
-      console.log("chuỗi token của bạn đã sai");
       return data;
     }
     return decoded;
   });
+  return result;
 }
 
 export default {

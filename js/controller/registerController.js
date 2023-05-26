@@ -16,7 +16,6 @@ async function createUser(req, res, next) {
     const query = `INSERT INTO ${table} (user_name, pass_word, full_name, user_id)
                                    VALUES ('${user_name}', '${pass_word}', '${full_name}', '${user_id}');`;
     await conn.execute(query);
-    res.redirect("http://localhost:3000");
 }
 exports.default = {
     getFormRegister,
