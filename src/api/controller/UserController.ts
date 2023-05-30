@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import userServices from "../services/userServices";
+import userServices from "../../services/userServices";
 
 async function getProfileUser(req: any, res: Response, next: NextFunction) {
   const { user_name } = req.data;

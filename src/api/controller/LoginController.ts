@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
-import { IUserInputDTO } from "../interfaces/IUsers";
-import loginService from "../services/loginServices";
+import { IUserInputDTO } from "../../interfaces/IUsers";
+import loginService from "../../services/loginServices";
 
 async function signIn(
   req: Request,
