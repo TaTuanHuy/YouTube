@@ -1,10 +1,7 @@
 import express from "express";
 const router = express.Router();
-import loginController from "../controller/loginController";
-import middleWareSignIn from "../middleware/middlewareSignIn";
+import loginController from "../controller/LoginController";
 
-router.post("/", middleWareSignIn.checkSignIn, loginController.signIn);
-
-router.get("/", loginController.getFormSignIn);
+router.post("/", loginController.signIn);
 
 export default router;

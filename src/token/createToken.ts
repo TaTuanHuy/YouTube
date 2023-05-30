@@ -1,8 +1,7 @@
 import jwt, { TokenExpiredError, VerifyOptions, decode } from "jsonwebtoken";
-import * as dotenv from "dotenv";
-dotenv.config();
+import config from "../config/config";
 
-function createToken(data: {}) {
+function createToken(data: {}): string {
   const token = jwt.sign(data, "HS256", {
     expiresIn: 60 * 60 * 24,
     algorithm: "HS512",
@@ -27,5 +26,4 @@ function verify(token: string) {
 
 export default {
   createToken,
-  verify,
 };

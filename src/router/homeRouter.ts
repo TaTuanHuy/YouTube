@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import homeController from "../controller/homeController";
+import homeController from "../controller/HomeController";
 
 router.get("/:id", homeController.profileVideo);
 
