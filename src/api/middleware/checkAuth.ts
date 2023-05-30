@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import config from "../config/config";
 import { Request, Response, NextFunction } from "express";
 async function checkAuth(req: any, res: Response, next: NextFunction) {
   const { token } = req.body;

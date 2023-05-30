@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import homeServices from "../services/homeServices";
-import { IVideo } from "../interfaces/IVideo";
+import homeServices from "../../services/homeServices";
+import { IVideo } from "../../interfaces/IVideo";
 
 async function getListVideo(
   req: Request,
