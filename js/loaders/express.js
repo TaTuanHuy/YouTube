@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const config_1 = __importDefault(require("../config/config"));
 const app = (0, express_1.default)();
 const port = config_1.default.port;
-const mainRouter_1 = __importDefault(require("../router/mainRouter"));
+const mainRouter_1 = __importDefault(require("../api/router/mainRouter"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
 exports.default = ({ app }) => {
