@@ -17,7 +17,7 @@ async function updateUser(req: any, res: Response, next: NextFunction) {
   const { user_name } = req.data;
   const { token, ...data } = req.body;
   const result = await userServices.updateUser(user_name, data);
-  res.send(result);
+  res.json(result);
 }
 
 export default { getProfileUser, createUser, updateUser };
