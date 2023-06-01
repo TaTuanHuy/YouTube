@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 function createToken(data) {
     const token = jsonwebtoken_1.default.sign(data, "HS256", {
-        expiresIn: 60 * 60 * 24,
+        expiresIn: 60 * 60,
         algorithm: "HS512",
     });
     const refressToken = jsonwebtoken_1.default.sign(data, "HS256", {

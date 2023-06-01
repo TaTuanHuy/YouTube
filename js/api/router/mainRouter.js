@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const homeRouter_1 = __importDefault(require("./homeRouter"));
 const loginRouter_1 = __importDefault(require("./loginRouter"));
 const UserRouter_1 = __importDefault(require("./UserRouter"));
+const videoRouter_1 = __importDefault(require("./videoRouter"));
 function router(app) {
+    app.use("/video", videoRouter_1.default);
     app.use("/user", UserRouter_1.default);
     app.use("/login", loginRouter_1.default);
     app.use("/", homeRouter_1.default);

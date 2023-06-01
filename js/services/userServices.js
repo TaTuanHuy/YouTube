@@ -34,17 +34,13 @@ class userService {
     }
     async updateUser(user, reqBody) {
         try {
-            console.log(user);
-            console.log(reqBody);
-            {
-                const { user_name, pass_word, full_name } = reqBody;
-                const conn = (await typedi_1.Container.get("connectMySql"));
-                const query = `UPDATE ${config_1.default.tbUser}
+            const { user_name, pass_word, full_name } = reqBody;
+            const conn = (await typedi_1.Container.get("connectMySql"));
+            const query = `UPDATE ${config_1.default.tbUser}
                         SET user_name = '${user_name}', pass_word = '${pass_word}', full_name = '${full_name}'
                         WHERE user_name = "${user}" `;
-                await conn.execute(query);
-                return "Thay đổi thành công!";
-            }
+            await conn.execute(query);
+            return "Thay đổi thành công!";
         }
         catch (error) {
             return error;

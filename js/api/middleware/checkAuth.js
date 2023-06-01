@@ -6,13 +6,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 async function checkAuth(req, res, next) {
     const { token } = req.body;
-    try {
-        var decoded = jsonwebtoken_1.default.verify(token, "HS256");
-        req.data = decoded;
-        next();
+    if (token) {
+        try {
+            var decoded = jsonwebtoken_1.default.verify(token, "HS256");
+            req.data = decoded;
+            next();
+        }
+        catch (error) {
+            return error;
+        }
     }
-    catch (err) {
-        console.log("Bạn chưa đăng nhập");
+    else {
+        res.status(401).send("No token provided");
     }
 }
 exports.default = { checkAuth };
