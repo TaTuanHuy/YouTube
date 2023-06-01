@@ -27,6 +27,5 @@ class AuthSignIn {
             }
         }
     }
-    async SignUp(reqBody) { }
 }
 exports.default = new AuthSignIn();

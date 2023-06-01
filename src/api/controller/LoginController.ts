@@ -6,9 +6,10 @@ async function signIn(
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<string | void> {
+): Promise<{ token: string; refressToken: string } | void> {
   const userDTO: IUserInputDTO = req.body;
   const token = await loginService.login(userDTO);
+
   res.json(token);
 }
 

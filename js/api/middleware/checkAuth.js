@@ -17,7 +17,7 @@ async function checkAuth(req, res, next) {
         }
     }
     else {
-        res.status(401).send("No token provided");
+        res.status(403).send("No token provided");
     }
 }
 exports.default = { checkAuth };

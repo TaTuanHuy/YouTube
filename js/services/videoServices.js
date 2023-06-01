@@ -46,5 +46,29 @@ class VideoService {
             return error;
         }
     }
+    async uploadVideo(reqBody) {
+        try {
+            const conn = (await typedi_1.Container.get("connectMySql"));
+            const { video_name, video_id, video_description, author_video } = reqBody;
+            const query = `INSERT INTO ${config_1.default.tbVideo} (video_name, video_id, video_description, author_video) 
+                            VALUES ('${video_name}', '${video_id}', '${video_description}', '${author_video}')`;
+            await conn.execute(query);
+            return "Success";
+        }
+        catch (error) {
+            return error;
+        }
+    }
+    async deleteVideo(video_id) {
+        try {
+            const conn = (await typedi_1.Container.get("connectMySql"));
+            const query = `DELETE FROM ${config_1.default.tbVideo} WHERE video_id= '${video_id}'`;
+            await conn.execute(query);
+            return "Success";
+        }
+        catch (error) {
+            return error;
+        }
+    }
 }
 exports.default = new VideoService();

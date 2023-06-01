@@ -10,20 +10,10 @@ function createToken(data) {
         algorithm: "HS512",
     });
     const refressToken = jsonwebtoken_1.default.sign(data, "HS256", {
-        expiresIn: "10d",
+        expiresIn: 60 * 60 * 10,
         algorithm: "HS512",
     });
-    return token;
-}
-function verify(token) {
-    const data = undefined;
-    const result = jsonwebtoken_1.default.verify(token, "HS256", (err, decoded) => {
-        if (err) {
-            return data;
-        }
-        return decoded;
-    });
-    return result;
+    return { token: token, refressToken: refressToken };
 }
 exports.default = {
     createToken,

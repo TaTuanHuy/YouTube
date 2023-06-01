@@ -20,8 +20,22 @@ async function updateVideo(req: Request | any, res: Response) {
   res.json(result);
 }
 
+async function uploadVideo(req: Request | any, res: Response) {
+  const { token, ...data } = req.body;
+  const result = await myVideoService.uploadVideo(data);
+  res.json(result);
+}
+
+async function deleteVideo(req: Request | any, res: Response) {
+  const videoId = req.params.id;
+  const result = await myVideoService.deleteVideo(videoId);
+  res.json(result);
+}
+
 export default {
   myVideo,
   profileVideo,
   updateVideo,
+  uploadVideo,
+  deleteVideo,
 };

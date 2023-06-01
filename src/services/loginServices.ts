@@ -5,7 +5,7 @@ import config from "../config/config";
 class AuthSignIn {
   contructor() {}
 
-  public async login(reqBody: IUserInputDTO): Promise<string | void> {
+  public async login(reqBody: IUserInputDTO): Promise<{} | void> {
     const conn = (await Container.get("connectMySql")) as any;
     const { user_name, pass_word } = reqBody;
     if (user_name == undefined || pass_word == undefined) {
@@ -22,8 +22,6 @@ class AuthSignIn {
       }
     }
   }
-
-  public async SignUp(reqBody: IUserInputDTO): Promise<string | void> {}
 }
 
 export default new AuthSignIn();
