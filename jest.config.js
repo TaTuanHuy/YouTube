@@ -11,7 +11,10 @@ module.exports = {
     // Jest sẽ dựa định dạng này để phát hiện các file 
     // cần được testing nhé
     "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(ts|tsx)$": ['ts-jest', {//the content you'd placed at "global"
+        babel: true,
+        tsConfig: 'tsconfig.json',
+      }]
     }, 
     // Thằng ts-jest sẽ xác định các file có dạng này
     // Sau đó sẽ biến đổi về dạng nó có thể hiểu được
@@ -21,7 +24,10 @@ module.exports = {
     "globals": {
       "ts-jest": {
         diagnostics: false
-      }
+      },  
+      "types": [
+        "reflect-metadata"
+      ]
     }
     // Ồ ồ cái này cần à nghe, cái này để các hàm
     // của thằng jest trở thành globals

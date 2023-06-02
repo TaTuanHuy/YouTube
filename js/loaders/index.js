@@ -7,10 +7,15 @@ const express_1 = __importDefault(require("./express"));
 // import mySqlLoader from "./dependenciJector";
 const connect_1 = __importDefault(require("./connect"));
 const typedi_1 = require("typedi");
+// import dependencyInjector from "./dependencyInjector";
 const config_1 = __importDefault(require("../config/config"));
 exports.default = async ({ expressApp }) => {
     const mySqlConnect = await connect_1.default;
+    // Container.set("connectMySql", mySqlLoader);
     typedi_1.Container.set("connectMySql", connect_1.default);
     typedi_1.Container.set("config", config_1.default);
+    // const { agenda } = await dependencyInjector({
+    //   mySqlLoader,
+    // });
     await (0, express_1.default)({ app: expressApp });
 };

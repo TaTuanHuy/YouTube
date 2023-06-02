@@ -1,6 +1,7 @@
 import config from "../config/config";
 import { Container } from "typedi";
 import { IUserInputUpdate } from "../interfaces/IUsers";
+import "reflect-metadata";
 class userService {
   contructor() {}
   async getProfileUser(user_name: string): Promise<IUserInputUpdate | any> {

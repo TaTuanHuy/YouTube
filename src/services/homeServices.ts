@@ -1,4 +1,5 @@
 import { Container } from "typedi";
+import "reflect-metadata";
 class Home {
   contructor() {}
   async getAllVideo() {

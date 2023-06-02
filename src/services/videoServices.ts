@@ -2,6 +2,8 @@ import { CLIENT_RENEG_WINDOW } from "tls";
 import { Container, Service } from "typedi";
 import config from "../config/config";
 import { IVideo } from "../interfaces/IVideo";
+import "reflect-metadata";
+import connection from "../loaders/connect";
 class VideoService {
   contructor() {}
   async GetListVideo(user_name: string) {
@@ -21,11 +23,12 @@ class VideoService {
 
   async GetProfileVideo(user_name: string, videoId: string) {
     const conn = (await Container.get("connectMySql")) as any;
+    // const conn = await connection;
     const query = `SELECT video_name, full_name, video_id, video_description from ${config.tbUser} inner join ${config.tbVideo} on ${config.tbUser}.user_id = ${config.tbVideo}.author_video where user_name = '${user_name}' and video_id = "${videoId}";`;
     const [rows, fields] = (await conn.execute(query)) as any;
 
     if (rows.length > 0) {
-      return rows;
+      return rows[0];
     } else {
       return "Bạn kh có quyền truy cập";
     }
