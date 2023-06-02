@@ -6,3 +6,5 @@ https://github.com/Rishabh570/express-api-unit-test-starter/blob/main/src/tests/
 
 
 https://dev.to/nguyenthienly/unit-test-in-typescript-by-jest-hb0
+
+https://www.freecodecamp.org/news/how-to-test-in-express-and-mongoose-apps/
