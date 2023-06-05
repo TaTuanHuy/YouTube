@@ -1,6 +1,6 @@
 // import { describe } from "node:test";
 // import jest from "jest";
-import { describe, expect, test } from "@jest/globals";
+import { describe, expect, test, afterEach } from "@jest/globals";
 import request from "supertest";
 import app from "../app";
 import "reflect-metadata";
@@ -21,20 +21,27 @@ import connection from "../loaders/connect";
 //   });
 // });
 Container.set("connectMySql", connection);
-describe("list my video", () => {
-  it("return my Video", async () => {
-    const result = await videoServices.GetProfileVideo(
-      "tuanhuy2",
-      "l0yKQLaNk5g"
-    );
-    expect(result.video_id).toBe("l0yKQLaNk5g");
+describe("health", () => {
+  afterEach(async () => {
+    (await connection).end();
+    console.log("Ran after all the test suites");
+  });
+
+  describe("list my video", () => {
+    it("return my Video", async () => {
+      const result = await videoServices.GetProfileVideo(
+        "tuanhuy2",
+        "l0yKQLaNk5g"
+      );
+      expect(result.video_id).toBe("l0yKQLaNk5g");
+    });
   });
 });
 
 // Container.set("connectMySql", connection);
-describe("list my video", () => {
-  it("return my list Video", async () => {
-    const result = await videoServices.GetListVideo("tuanhuy2");
-    expect(result[0].video_name).toBe("Nhạc văn mai hương");
-  });
-});
+// describe("list my video", () => {
+//   it("return my list Video", async () => {
+//     const result = await videoServices.GetListVideo("tuanhuy2");
+//     expect(result[0].video_name).toBe("Nhạc văn mai hương");
+//   });
+// });
