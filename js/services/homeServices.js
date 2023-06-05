@@ -5,18 +5,28 @@ require("reflect-metadata");
 class Home {
     contructor() { }
     async getAllVideo() {
-        const conn = (await typedi_1.Container.get("connectMySql"));
-        const query = `SELECT * FROM ${process.env.VIDEO_TABLE}`;
-        const [rows, fields] = await conn.execute(query);
-        return [rows];
+        try {
+            const conn = (await typedi_1.Container.get("connectMySql"));
+            const query = `SELECT * FROM ${process.env.VIDEO_TABLE}`;
+            const [rows, fields] = await conn.execute(query);
+            return [rows];
+        }
+        catch (error) {
+            throw error;
+        }
     }
     async getProfileVideo(reqParams) {
-        const id = reqParams;
-        const conn = (await typedi_1.Container.get("connectMySql"));
-        const query = `SELECT * FROM ${process.env.VIDEO_TABLE} WHERE video_id = '${id}'`;
-        const [rows, fields] = await conn.execute(query);
-        let result = Object.values(JSON.parse(JSON.stringify(rows)));
-        return result;
+        try {
+            const id = reqParams;
+            const conn = (await typedi_1.Container.get("connectMySql"));
+            const query = `SELECT * FROM ${process.env.VIDEO_TABLE} WHERE video_id = '${id}'`;
+            const [rows, fields] = await conn.execute(query);
+            let result = Object.values(JSON.parse(JSON.stringify(rows)));
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
     }
 }
 exports.default = new Home();

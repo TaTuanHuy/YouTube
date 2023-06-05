@@ -4,11 +4,9 @@ import { Container, Service, Inject } from "typedi";
 import config from "../config/config";
 import connection from "../loaders/connect";
 import "reflect-metadata";
-@Service()
 class AuthSignIn {
   contructor() {}
   // const conn = Container.get("connectMySql") as any;
-  @Inject()
   // conn: Container.get("connectMySql") as any ;
   public async login(reqBody: IUserInputDTO): Promise<{} | void> {
     const conn = (await Container.get("connectMySql")) as any;
