@@ -1,11 +1,8 @@
-import { CLIENT_RENEG_WINDOW } from "tls";
 import { Container, Service } from "typedi";
 import config from "../config/config";
 import { IVideo } from "../interfaces/IVideo";
 import "reflect-metadata";
-import connection from "../loaders/connect";
 class VideoService {
-  // connect = Container.get("connectMySql");
   contructor() {}
   async GetListVideo(user_name: string) {
     try {

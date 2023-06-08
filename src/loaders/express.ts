@@ -3,7 +3,6 @@ import config from "../config/config";
 const app = express();
 const port = config.port;
 import router from "../api/router/mainRouter";
-import path from "path";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 

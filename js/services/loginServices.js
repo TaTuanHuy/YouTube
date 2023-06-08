@@ -9,12 +9,8 @@ const config_1 = __importDefault(require("../config/config"));
 require("reflect-metadata");
 class AuthSignIn {
     contructor() { }
-    // const conn = Container.get("connectMySql") as any;
-    // conn: Container.get("connectMySql") as any ;
     async login(reqBody) {
         const conn = (await typedi_1.Container.get("connectMySql"));
-        // const conn = (await connection) as any;
-        // // const conn = (await Container.get("agendaInstance")) as any;
         const { user_name, pass_word } = reqBody;
         if (user_name == undefined || pass_word == undefined) {
             console.log("Bạn đã nhập sai tài khoản hoặc mật khẩu vui lòng thử lại!");

@@ -37,7 +37,7 @@ class VideoService {
                 return rows[0];
             }
             else {
-                return "Bạn kh có quyền truy cập";
+                return "Bạn không có quyền truy cập";
             }
         }
         catch (error) {

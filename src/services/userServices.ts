@@ -23,6 +23,7 @@ class userService {
         const query = `INSERT INTO ${config.tbUser} (user_name, pass_word, full_name, user_id)
                                            VALUES ('${user_name}', '${pass_word}', '${full_name}', '${user_id}');`;
         await conn.execute(query);
+        return "Success";
       }
     } catch (error) {
       return error;
@@ -37,7 +38,7 @@ class userService {
                         SET user_name = '${user_name}', pass_word = '${pass_word}', full_name = '${full_name}'
                         WHERE user_name = "${user}" `;
       await conn.execute(query);
-      return "Thay đổi thành công!";
+      return "Update Success";
     } catch (error) {
       return error;
     }

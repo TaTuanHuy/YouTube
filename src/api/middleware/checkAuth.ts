@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { StringifyOptions } from "querystring";
 async function checkAuth(req: any, res: Response, next: NextFunction) {
   try {
     const { token } = req.body;

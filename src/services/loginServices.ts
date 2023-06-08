@@ -6,12 +6,8 @@ import connection from "../loaders/connect";
 import "reflect-metadata";
 class AuthSignIn {
   contructor() {}
-  // const conn = Container.get("connectMySql") as any;
-  // conn: Container.get("connectMySql") as any ;
   public async login(reqBody: IUserInputDTO): Promise<{} | void> {
     const conn = (await Container.get("connectMySql")) as any;
-    // const conn = (await connection) as any;
-    // // const conn = (await Container.get("agendaInstance")) as any;
     const { user_name, pass_word } = reqBody;
     if (user_name == undefined || pass_word == undefined) {
       console.log("Bạn đã nhập sai tài khoản hoặc mật khẩu vui lòng thử lại!");

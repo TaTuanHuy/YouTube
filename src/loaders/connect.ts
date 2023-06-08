@@ -1,6 +1,5 @@
 import config from "../config/config";
 import mysql from "mysql2/promise";
-// jest.mock("mysql");
 
 const connection = mysql.createConnection({
   host: config.host,
