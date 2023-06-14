@@ -3,8 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import { describe } from "node:test";
-// import jest from "jest";
 const globals_1 = require("@jest/globals");
 require("reflect-metadata");
 const typedi_1 = require("typedi");

@@ -7,7 +7,6 @@ const typedi_1 = require("typedi");
 const config_1 = __importDefault(require("../config/config"));
 require("reflect-metadata");
 class VideoService {
-    // connect = Container.get("connectMySql");
     contructor() { }
     async GetListVideo(user_name) {
         try {

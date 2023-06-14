@@ -15,7 +15,6 @@ async function checkAuthVideo(req: any, res: Response, next: NextFunction) {
         const [rows, fields] = (await conn.execute(query)) as any;
         if (rows.length > 0) {
           next();
-          console.log(rows);
         } else {
           res.json("Bạn kh có quyền chỉnh sửa mục này");
         }
