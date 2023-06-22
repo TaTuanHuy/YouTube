@@ -9,3 +9,7 @@ https://dev.to/nguyenthienly/unit-test-in-typescript-by-jest-hb0
 
 https://www.freecodecamp.org/news/how-to-test-in-express-and-mongoose-apps/
 https://lightrun.com/answers/typestack-typedi-question-servicenotfounderror-service-with-maybeconstructableapplicationcontext-identifier-wa
+
+------
+fix terminal
+https://github.com/microsoft/vscode/issues/130320#issuecomment-916569599
