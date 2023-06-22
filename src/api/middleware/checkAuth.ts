@@ -9,7 +9,7 @@ async function checkAuth(req: any, res: Response, next: NextFunction) {
         req.data = decoded;
         next();
       } catch (error) {
-        return error;
+        throw error;
       }
     } else {
       res.status(403).send("No token provided");

@@ -21,7 +21,7 @@ async function checkAuthVideo(req, res, next) {
                     next();
                 }
                 else {
-                    res.json("Bạn kh có quyền chỉnh sửa mục này");
+                    res.json("Bạn kh có quyền chỉnh sửa mục này hoặc VideoId đã sai");
                 }
             }
             catch (error) {

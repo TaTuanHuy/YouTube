@@ -1,8 +1,9 @@
 import { Container } from "typedi";
 import "reflect-metadata";
+import { IVideo } from "../interfaces/IVideo";
 class Home {
   contructor() {}
-  async getAllVideo() {
+  async getAllVideo(): Promise<IVideo[]> {
     try {
       const conn = (await Container.get("connectMySql")) as any;
       const query = `SELECT * FROM ${process.env.VIDEO_TABLE}`;

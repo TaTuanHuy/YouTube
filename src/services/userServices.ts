@@ -15,13 +15,13 @@ class userService {
     }
   }
 
-  async createUser(reqBody: IUserInputUpdate) {
+  async createUser(reqBody: IUserInputUpdate): Promise<string | any> {
     try {
       {
         const { user_name, pass_word, full_name, user_id } = reqBody;
         const conn = (await Container.get("connectMySql")) as any;
         const query = `INSERT INTO ${config.tbUser} (user_name, pass_word, full_name, user_id)
-                                           VALUES ('${user_name}', '${pass_word}', '${full_name}', '${user_id}');`;
+                       VALUES ('${user_name}', '${pass_word}', '${full_name}', '${user_id}');`;
         await conn.execute(query);
         return "Success";
       }
@@ -30,13 +30,16 @@ class userService {
     }
   }
 
-  async updateUser(user: string, reqBody: IUserInputUpdate) {
+  async updateUser(
+    user: string,
+    reqBody: IUserInputUpdate
+  ): Promise<string | any> {
     try {
       const { user_name, pass_word, full_name } = reqBody;
       const conn = (await Container.get("connectMySql")) as any;
       const query = `UPDATE ${config.tbUser}
-                        SET user_name = '${user_name}', pass_word = '${pass_word}', full_name = '${full_name}'
-                        WHERE user_name = "${user}" `;
+                    SET user_name = '${user_name}', pass_word = '${pass_word}', full_name = '${full_name}'
+                    WHERE user_name = "${user}" `;
       await conn.execute(query);
       return "Update Success";
     } catch (error) {

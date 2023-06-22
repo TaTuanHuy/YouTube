@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import userServices from "../../services/userServices";
+import { IUserInputUpdate } from "../../interfaces/IUsers";
 
 async function getProfileUser(req: any, res: Response, next: NextFunction) {
   const { user_name } = req.data;
@@ -7,7 +8,11 @@ async function getProfileUser(req: any, res: Response, next: NextFunction) {
   res.json(value);
 }
 
-async function createUser(req: Request, res: Response, next: NextFunction) {
+async function createUser(
+  req: Request<IUserInputUpdate>,
+  res: Response,
+  next: NextFunction
+) {
   const reqBody = req.body;
   const result = await userServices.createUser(reqBody);
   res.json(result);

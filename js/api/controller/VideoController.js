@@ -17,7 +17,6 @@ async function profileVideo(req, res) {
 }
 async function updateVideo(req, res) {
     const videoId = req.params.id;
-    const { token, ...data } = req.body;
     const result = await videoServices_1.default.updateVideo(videoId, req.body);
     res.json(result);
 }

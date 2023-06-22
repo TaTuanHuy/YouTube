@@ -14,7 +14,7 @@ async function checkAuth(req, res, next) {
                 next();
             }
             catch (error) {
-                return error;
+                throw error;
             }
         }
         else {
