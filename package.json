@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",
+    "axios": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -19,6 +20,8 @@
     "express-handlebars": "^7.0.7",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.3.1",
+    "node-fetch": "^3.3.1",
+    "redis": "^4.6.7",
     "reflect-metadata": "^0.1.13",
     "supertest": "^6.3.3",
     "typedi": "^0.10.0"
